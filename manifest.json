@@ -3,7 +3,7 @@
   "name": "MNSure Script Engine",
 	"author": "Lucas Shanley",
   "description": "This is used to run scripts on the mnsure page.",
-  "version": "1.7",
+  "version": "2.3",
 	"icons": { 
 		"16": "icon16.png",
 		"32": "icon32.png",
@@ -29,14 +29,5 @@
   ],
 	"web_accessible_resources": [
 		"https://rawgit.com/lpshanley/MNSure-Script-Engine/*"
-	],
-	"externally_connectable": {
-		"matches": ["https://people.mnsure.org/Curam/*"]
-	},
-	"background": {
-		"scripts": [
-			"js/libs/jquery.min.js",
-			"js/background.js"
-		]
-	}
+	]
 }

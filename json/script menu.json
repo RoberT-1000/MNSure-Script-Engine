@@ -1,0 +1,28 @@
+{
+	"Unified Search": {
+		"_events": "caseWork/unifiedSearch/start()"
+	},
+	"Case Notes": {
+		"_events": "",
+		"_submenu": {
+			"Returned Mail...": {
+				"_events": "caseWork/note/write(Returned Mail)"
+			},
+			"Change Reported...": {
+				"_events": "caseWork/note/write(Change Reported)"
+			},
+			"Client Contact...": {
+				"_events": "caseWork/note/write(Client Contact)"
+			},
+			"Add Member...": {
+				"_events": "caseWork/note/write(Add Member)"
+			},
+			"Income...": {
+				"_events": "caseWork/note/write(Income)"
+			},
+			"ATS...": {
+				"_events": "caseWork/note/write(ATS)"
+			}
+		}
+	}
+}

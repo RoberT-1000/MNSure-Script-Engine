@@ -1,0 +1,33 @@
+<!-- MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */ -->
+
+<div class="mns-modal-template" data-input-clusters="true">
+	
+	<span class="mns-input-group">
+		<span class="mns-input-descriptor">SUBJECT</span>
+		<span class="mns-input-label">Change: </span> 
+		<select type="select" >
+			<option value="Change Reported: Address Update">Address Update</option>
+		</select>
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Change Reported: Address Update">
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Updated Case & Person evidence per ONEsource procedures</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-New Address</span>
+			<span class="mns-input-label">New Address: </span> 		
+			<input type="text" data-prefill="evidence|address(current)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Previous Address</span>
+			<span class="mns-input-label">Previous Address: </span> 		
+			<input type="text" data-prefill="evidence|address(history)" />
+		</span>
+		
+	</span>
+
+</div>

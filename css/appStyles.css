@@ -39,7 +39,7 @@
 }
 
 #app-banner .center-box {
-	width: 450px;
+	width: 200px;
 	float: left;
 	display: inline-block;
 	height: 24px;
@@ -52,12 +52,20 @@
 	box-shadow: inset 5px 5px 5px -5px rgba(0,0,0,.8);
 }
 
+#app-banner .mns-expiryBlock{
+	color: #FFFFFF;
+	margin-left: 10px;
+	margin-top: 7px;
+	display: block;
+	float: left;
+}
+
 /* IFrame Corrections
 =================================================================*/
 
 .soria .expand-list-dropdown {
-    margin: 0px;
-    padding: 3px 1px 1px 3px;
+	margin: 0px;
+	padding: 3px 1px 1px 3px;
 }
 
 /* Script dropdown menu system
@@ -173,7 +181,7 @@
 	background-color: white;
 	z-index: inherit;
 	margin: auto;
-	top: 50px;
+	top: 30vh;
 	position: relative;
 	-webkit-box-shadow: none !important;
 }
@@ -196,6 +204,7 @@
 	display: block;
 	margin: 5px 0;
 	width: 100%;
+	clear: both;
 }
 
 .mns-input-group:first-child {
@@ -208,6 +217,44 @@
 
 .mns-input-group:only-child {
 	margin: 15px 0;
+}
+
+.mns-input-group span.mns-input-label {
+	width: 33%;
+	display: block;
+	float: left;
+	padding-top: 3px;
+}
+
+.mns-input-group select {
+	height: 21px;
+}
+
+.mns-input-group input,
+.mns-input-group select {
+	width: 66%;
+}
+
+.mns-input-group .mns-input-infotext{
+	width: 100% !important;
+	padding-top: 0px !important;
+	float: none !important;
+}
+
+.mns-input-group .align-center{
+	text-align: center !important;
+}
+
+.mns-input-group.col-2 span.mns-input-label {
+	width: 46%;
+	display: block;
+	float: left;
+	padding-top: 3px;
+}
+
+.mns-input-group.col-2 input,
+.mns-input-group.col-2 select {
+	width: 50%;
 }
 
 .mns-input-group.col-2 {
@@ -223,6 +270,30 @@
 	display: none;
 }
 
+.mns-modal-template .input-error .mns-input-label::before {
+	content: "* ";
+}
+
+.mns-modal-template .input-error .mns-input-label {
+	color: #FF2222;
+}
+
+.mns-modal-template .input-error input {
+	border: 2px solid #FF2222;
+}
+
+.mns-modal-template .mns-input-cluster {
+	display: none;
+}
+
+.mns-modal-template .mns-input-cluster.input-cluster-active .mns-input-group:first-child {
+	margin-top: 5px;
+}
+
+.mns-modal-template .mns-input-cluster.input-cluster-active {
+	display: block;
+}
+
 /* Top notification bar layout
 =================================================================*/
 
@@ -230,4 +301,113 @@ div.center-box > span {
 	position: relative;
 	top: 5px;
 	left: 6px;
+}
+
+@media only screen and (max-width: 1150px) {
+	div.center-box {
+		
+		display: none !important;
+		
+	}
+}
+
+/* Merlin Styles
+===================================================================*/
+
+.merlin-backdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.25);
+	z-index: 900;
+}
+
+.merlin-wrapper{
+	height: 50vh;
+	width: 60vw;
+	background-color: #fff;
+	position: absolute !important;
+	z-index: 1000;
+	top: 25vh;
+	left: 20vw;
+	box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.merlin-wrapper .merlin-leftContent {
+	width: 30%;
+	height: calc(100% - 21px);
+	float:left;
+}
+
+.merlin-wrapper .merlin-bodyContent {
+	width: 70%;
+	height: calc(100% - 21px);
+	float:right;
+	background-color:#f1f1f1;
+	border-left: 1px solid rgba(0,0,0,.2);
+	box-sizing: border-box;
+}
+
+.merlin-wrapper .merlin-bodyContentContainer {
+	margin: 1% 3%;
+}
+
+.merlin-wrapper .merlin-taskBinderContainer {
+	margin: 3%;
+}
+
+	/* Applies to left items */
+.merlin-wrapper .merlin-leftContent .merlin-taskCard {
+	
+}
+
+	/* Applies to left items */
+.merlin-wrapper .merlin-leftContent .merlin-taskCard .merlin-taskCardTitle {
+	
+}
+
+	/* Applies to right items */
+.merlin-wrapper .merlin-bodyContent .merlin-taskCard {
+	
+}
+
+	/* Applies to both left and right items */
+.merlin-wrapper .merlin-taskCard {
+	padding: 4%;
+	background-color: #fff;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+
+/*  Autocomplete Syntax
+==================================================*/
+ul.ui-autocomplete {
+	z-index: 1000;
+	padding: 0;
+}
+
+.ui-corner-all {
+	border-radius: 0 !important;
+}
+
+ul.ui-autocomplete li.ui-menu-item a {
+	padding: 1px !important;
+	font: 13px Tahoma, sans-serif !important;
+}
+
+ul.ui-autocomplete li.ui-menu-item a:hover {
+	border-radius: 0;
+}
+
+.ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }

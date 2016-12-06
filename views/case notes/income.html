@@ -1,0 +1,228 @@
+<!-- MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */ -->
+
+<div class="mns-modal-template" data-input-clusters="true">
+
+	<span class="mns-input-group">
+		<span class="mns-input-descriptor">SUBJECT</span>
+		<span class="mns-input-label">Income Change Type: </span> 
+		<select type="select" >
+			<option value="Change in Circumstance: Updated Income">Updated Income</option>
+			<option value="Change in Circumstance: New Income">New Income</option>
+			<option value="Change in Circumstance: Income Ended">Income Ended</option>
+		</select>
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Change in Circumstance: Updated Income">
+	
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Household Member</span>
+			<span class="mns-input-label">HH Member: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Income Type</span>
+			<span class="mns-input-label">Income Type: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Date of change</span>
+			<span class="mns-input-label">Date of change: </span> 		
+			<input type="date" data-prefill="date|today"/>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">**************************</span>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Method of receipt</span>
+			<span class="mns-input-label">Method of receipt: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Date of receipt</span>
+			<span class="mns-input-label">Date of receipt: </span> 		
+			<input type="date" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">**************************</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">DHS-3907 sent for</span>
+			<span class="mns-input-label">DHS-3907 sent for: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Eligibility after update</span>
+			<span class="mns-input-label">Eligibility after update: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Type of notice sent</span>
+			<span class="mns-input-label">Type of notice sent: </span> 		
+			<select type="select">
+				<option value=""></option>
+				<option value="DHS-3907">DHS-3907</option>
+				<option value="RFI">RFI</option>
+				<option value="Internal UI Request">Internal UI Request</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Notice sent on</span>
+			<span class="mns-input-label">Notice sent on: </span> 		
+			<input type="date" data-prefill="date|today"/>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Change in Circumstance: New Income">
+	
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Household Member</span>
+			<span class="mns-input-label">HH Member: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Income Type</span>
+			<span class="mns-input-label">Income Type: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Date of change</span>
+			<span class="mns-input-label">Date of change: </span> 		
+			<input type="date" data-prefill="date|today"/>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">**************************</span>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Method of receipt</span>
+			<span class="mns-input-label">Method of receipt: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Date of receipt</span>
+			<span class="mns-input-label">Date of receipt: </span> 		
+			<input type="date" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">**************************</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">DHS-3907 sent for</span>
+			<span class="mns-input-label">DHS-3907 sent for: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Eligibility after update</span>
+			<span class="mns-input-label">Eligibility after update: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Type of notice sent</span>
+			<span class="mns-input-label">Type of notice sent: </span> 		
+			<select type="select">
+				<option value=""></option>
+				<option value="DHS-3907">DHS-3907</option>
+				<option value="RFI">RFI</option>
+				<option value="Internal UI Request">Internal UI Request</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Notice sent on</span>
+			<span class="mns-input-label">Notice sent on: </span> 		
+			<input type="date" data-prefill="date|today"/>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Change in Circumstance: Income Ended">
+	
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Household Member</span>
+			<span class="mns-input-label">HH Member: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Income Type</span>
+			<span class="mns-input-label">Income Type: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Date of change</span>
+			<span class="mns-input-label">Date of change: </span> 		
+			<input type="date" data-prefill="date|today"/>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">**************************</span>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Method of receipt</span>
+			<span class="mns-input-label">Method of receipt: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Date of receipt</span>
+			<span class="mns-input-label">Date of receipt: </span> 		
+			<input type="date" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">**************************</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">DHS-3907 sent for</span>
+			<span class="mns-input-label">DHS-3907 sent for: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Eligibility after update</span>
+			<span class="mns-input-label">Eligibility after update: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Type of notice sent</span>
+			<span class="mns-input-label">Type of notice sent: </span> 		
+			<select type="select">
+				<option value=""></option>
+				<option value="DHS-3907">DHS-3907</option>
+				<option value="RFI">RFI</option>
+				<option value="Internal UI Request">Internal UI Request</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Notice sent on</span>
+			<span class="mns-input-label">Notice sent on: </span> 		
+			<input type="date" data-prefill="date|today"/>
+		</span>
+		
+	</span>
+
+</div>

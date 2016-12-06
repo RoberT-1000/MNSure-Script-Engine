@@ -1,11 +1,13 @@
 <!-- MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */ -->
 
-<div class="mns-modal-template">
-
+<div class="mns-modal-template" data-input-clusters="true">
+	
 	<span class="mns-input-group">
 		<span class="mns-input-descriptor">SUBJECT</span>
 		<span class="mns-input-label">Returned Mail Type: </span> 
-		<select type="select">
+		<select type="select" >
+			<option value="Returned Mail: Forward">Forward</option>
+			<option value="Returned Mail: Address out of County">Out of County</option>
 			<option value="Returned Mail: Out of State">Out of State</option>
 			<option value="Returned Mail: Unable to Forward">Unable to Forward</option>
 			<option value="Returned Mail: Temporarily Away">Temporarily Away</option>
@@ -13,17 +15,203 @@
 			<option value="Returned Mail: Address Workaround">Address Workaround</option>
 		</select>
 	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Forward">
 
-	<span class="mns-input-group col-2">
-		<span class="mns-input-descriptor">Case note line</span>
-		<span class="mns-input-label">Label 1:</span> 
-		<input type="text" />
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Updated Case & Person evidence per ONEsource procedures</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Forwarded Mail</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-New Address</span>
+			<span class="mns-input-label">New Address: </span> 
+			<input type="text" data-prefill="evidence|addresses(current)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Previous Address</span>
+			<span class="mns-input-label">Previous Address: </span> 
+			<input type="text" data-prefill="evidence|addresses(history)" />
+		</span>
+		
 	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Address out of County">
 
-	<span class="mns-input-group col-2">
-		<span class="mns-input-descriptor">Case note line2</span>
-		<span class="mns-input-label">Label 2:</span>
-		<input type="text" />
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Updated Case Address, State Residency Evidence & Person Record(s)</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Updated FRA Evidence</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Forwarded Mail</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-New Address</span>
+			<span class="mns-input-label">New Address: </span>
+			<input type="text" data-prefill="evidence|addresses(current)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Previous Address</span>
+			<span class="mns-input-label">Previous Address: </span>
+			<input type="text" data-prefill="evidence|addresses(history)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-New Service Agency</span>
+			<span class="mns-input-label">New Service Agency: </span>
+			<input type="text" data-prefill="evidence|service agency(current)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Old Service Agency</span>
+			<span class="mns-input-label">Old Service Agency: </span>
+			<input type="text" data-prefill="evidence|service agency(history)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-New county gains FRA</span>
+			<span class="mns-input-label">New county gains FRA: </span>
+			<input type="date" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Emailed MNS team to complete transfer</span>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Out of State">
+
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-DHS-3271 sent to new address</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Client added to tracking list for out of state closures</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Forwarded Mail to address listed</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Case will be close if address information is not received within 10 days</span>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Unable to Forward">
+
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Attempted to reach client through all available resources, was unable to procure any current address.</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-DHS-3271 sent to last known address</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Client added to tracking list for whereabouts unknown</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Case will be close if address information is not received within 10 days</span>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Temporarily Away">
+
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Forwarded to current temporary address.</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Client is only temporarily away from Minnesota, did not send 10 day notice.</span>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Case in Renewal">
+
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-New Address Reported</span>
+			<span class="mns-input-label">New Address: </span>
+			<input type="text" data-prefill="evidence|addresses(current)" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Could not perform change in address, as case is currently in Annual Renewal.</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Sent paperwork to current address, if applicable.</span>
+		</span>
+		
+	</span>
+	
+	<span class="mns-input-cluster" data-cluster-title="Returned Mail: Address Workaround">
+
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">-Type of Notice Received</span>
+			<span class="mns-input-label">Type of Notice Received: </span> 		
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Address was correct; however, information has not interfaced to MMIS.</span>
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">-Performed address push to interface correct address.</span>
+		</span>
+		
 	</span>
 
 </div>
