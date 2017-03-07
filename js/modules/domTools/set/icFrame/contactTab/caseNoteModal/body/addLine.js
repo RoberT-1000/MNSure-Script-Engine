@@ -1,40 +1,20 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
-_engine.module.define('domTools/set/icFrame/contactTab/caseNoteModal/body/addLine',function( _s ){
+_engine.module.define('domTools/set/icFrame/contactTab/caseNoteModal/body/addLine',function( input ){
 	
-	_engine.debug.info("- * [ _engine.domTools.set.icFrame.contactTab.caseNoteModal.body.addLine() ] Started | Input: " + _s);
-
-	var _modalBody = _engine.domTools.get.icFrame.contactTab.caseNoteModal._body();
-
-	if(typeof $( _modalBody ) != 'undefined'){
-		
-		_engine.debug.info("- * [ _engine.domTools.set.icFrame.contactTab.caseNoteModal.body.addLine() ] Located modal body");
-
-		//Wrap input in div tags
-		var line = $('<div>',{'html':_s});
-		
-		//Check if body is empty
-		
-		if(_engine.domTools.test.icFrame.contactTab.caseNoteModal.body.isEmpty()){
-			
-			_engine.debug.info("- * [ _engine.domTools.set.icFrame.contactTab.caseNoteModal.body.addLine() ] Body empty. Writing Line.");
-			
-			//If empty, set first line
-			
-			$( _modalBody ).html( line );
-			
-		} else {
-			
-			_engine.debug.info("- * [ _engine.domTools.set.icFrame.contactTab.caseNoteModal.body.addLine() ] Body not empty. Writing Line.");
-			
-			//If not empty, add to body
-			$( _modalBody ).append( line );
-
-		}
-		
-	} else {
-		_engine.debug.warn("- * Fail Reason: [ _engine.domTools.set.icFrame.contactTab.caseNoteModal.body.addLine() ]: Could not add line. Body returning 'undefined'.")
-	}
-
-	_engine.debug.info("- * [ _engine.domTools.set.icFrame.contactTab.caseNoteModal.body.addLine() ] Complete");
+	if( typeof input !== 'string' ) input = "";
+	
+	let body = _engine.domTools.get.icFrame.contactTab.caseNoteModal._body(),
+			line = $('<div>',{'html': input }),
+			err = false;
+	
+	// If no body available log error
+	!body ?
+		err = "Could not add line to body" :
+		// If body is available test if empty to add text or append text
+		_engine.domTools.test.icFrame.contactTab.caseNoteModal.body.isEmpty() ?
+			$( body ).html( line ):
+			$( body ).append( line );
+	
+	if( err ) _engine.debug.warn( `[ caseNoteModal.body.addLine() ] ${ err }` );
 	
 });

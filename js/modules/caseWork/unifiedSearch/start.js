@@ -9,12 +9,12 @@ _engine.module.define('caseWork/unifiedSearch/start',function(){
 				title:"Unified Search Query",
 				html: template,
 				buttons: [
-					{label:'Search', onclick:"_engine.events.handleClickEvent('ui.modal._button(submit)')", role: 'submit'},
+					{label:'Search', onclick:"return false;", role: 'submit'},
 					'close'
 				]
-			},function(){
+			},function( props ){
 				
-				_engine.storage.nocache.data.modal.role = 'query';
+				_engine.storage.nocache.data.modal[props.id].role = 'query';
 				
 			});
 			

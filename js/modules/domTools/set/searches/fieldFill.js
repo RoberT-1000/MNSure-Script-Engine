@@ -1,12 +1,8 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
-_engine.module.define('domTools/set/searches/fieldFill',function( _field, _value ){
+_engine.module.define('domTools/set/searches/fieldFill',function( target, value ){
 	
-	var _f = _engine.domTools.get.searches.inputQuery( _field );
+	let field = _engine.domTools.get.searches.inputQuery( target );
 
-	if( _f !== false ){
-
-		$( _f ).val( _value );
-
-	}
+	if( field ) $( field ).val( value );
 	
 });

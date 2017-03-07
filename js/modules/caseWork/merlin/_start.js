@@ -3,15 +3,18 @@ _engine.module.define('caseWork/merlin/_start',function( input ){
 	
 	_engine.caseWork.global.onCaseScreen(function(){
 		
-		let config = null;
+		let config = false;
 		
 		switch( input.toLowerCase() ){
 			case 'client contact':
 				config = {
 					title: 'Client Contact',
-					tasks: {
-						note: 'client contact'
-					}
+					tasks: [
+						{
+							title: 'Case Note',
+							action: 'writeNote/client contact'
+						}
+					]
 				}
 				break;
 			default:
@@ -19,10 +22,8 @@ _engine.module.define('caseWork/merlin/_start',function( input ){
 				break;
 		}
 		
-		if( config !== null ){
-			_engine.caseWork.merlin.cast( config );
-		}
+		if( config ) _engine.caseWork.merlin.cast( config );
 		
-	},true);
+	}, true);
 	
 });

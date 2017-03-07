@@ -2,7 +2,7 @@
 _engine.module.define('tools/customApi/evidence/_getSubQueries',function( reqObj, callback ){
 	
 	var processSubQueries = function( inputObj, deepObj ){
-
+		
 		let objClassArray = $( inputObj[Object.getOwnPropertyNames( inputObj )[0]].content ).find('table').attr('class').split(" ");
 		
 		let returnScope;
@@ -131,15 +131,12 @@ _engine.module.define('tools/customApi/evidence/_getSubQueries',function( reqObj
 
 	}
 
-	let returnObj = {};
+	let returnObj = {},
+			deepObj = false;
 
-	var deepObj = false;
-
-	var requestScope = Object.getOwnPropertyNames( reqObj )[0];
+	let requestScope = Object.getOwnPropertyNames( reqObj )[0];
 	
-	var deepScope = ["evidenceData","evidenceItem"];
-
-	if( deepScope.indexOf( requestScope ) > -1 ) deepObj = true;
+	if( ["evidenceData","evidenceItem"].indexOf( requestScope ) > -1 ) deepObj = true;
 
 	/* Deep Object */
 	if( deepObj ) returnObj = processSubQueries( reqObj[requestScope], deepObj );

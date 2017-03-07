@@ -75,8 +75,6 @@ _engine.module.define('ui/modal/_prefillFromDataQuery',function( type, callback 
 						
 					});
 					
-					console.log('Using: ', useObject);
-					
 				}
 			});
 		}
@@ -106,14 +104,15 @@ _engine.module.define('ui/modal/_prefillFromDataQuery',function( type, callback 
 				if( isAvailable() ){
 					
 					let result = useObject[scope].Residential;
+					
 					if( typeof result !== 'undefined' ){
 					
-					if( result.apt_suite !== "" ) prefillString += result.apt_suite + ", ";
-					if( result.street_1 !== "" ) prefillString += result.street_1 + ", ";
-					if( result.street_2 !== "" ) prefillString += result.street_2 + ", "; 
-					if( result.city !== "" ) prefillString += result.city + ", "; 
-					if( result.state !== "" ) prefillString += result.state + ", "; 
-					if( result.zip !== "" ) prefillString += result.zip; 
+						if( result.apt_suite !== "" ) prefillString += result.apt_suite + ", ";
+						if( result.street_1 !== "" ) prefillString += result.street_1 + ", ";
+						if( result.street_2 !== "" ) prefillString += result.street_2 + ", "; 
+						if( result.city !== "" ) prefillString += result.city + ", "; 
+						if( result.state !== "" ) prefillString += result.state + ", "; 
+						if( result.zip !== "" ) prefillString += result.zip; 
 						
 					}
 					else {

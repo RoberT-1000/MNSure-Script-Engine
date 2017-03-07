@@ -1,12 +1,12 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
-_engine.module.define('ui/modal/_processPrefill',function(){
+_engine.module.define('ui/modal/_processPrefill',function( modalTarget ){
 	
-	var _fields = $('.mns-modal-template > .mns-input-group');
+	var _fields = $('[data-id="'+modalTarget+'"] .mns-modal-template > .mns-input-group');
 
 		//Push additional clusters if clustering is active
-	if( _engine.ui.modal._clustersActive() ){
+	if( _engine.ui.modal._clustersActive( modalTarget ) ){
 
-		var _clusterFields = $('.mns-modal-template > .mns-input-cluster.input-cluster-active > .mns-input-group');
+		var _clusterFields = $('[data-id="'+modalTarget+'"] .mns-modal-template > .mns-input-cluster.input-cluster-active > .mns-input-group');
 
 		$.each(_clusterFields,function(k,v){
 
@@ -35,13 +35,13 @@ _engine.module.define('ui/modal/_processPrefill',function(){
 					case "date":
 						switch( _prefillValue ){
 							case "today":
-
+									
 								var d = new Date();
-
+									
 								var prefillDate = d.toISOString().split('T')[0];
-
+									
 								$( v ).find('input').val( prefillDate );
-
+									
 								break;
 							default:
 								break;
@@ -49,11 +49,11 @@ _engine.module.define('ui/modal/_processPrefill',function(){
 						break;
 					case "evidence":
 						if( _prefillValue !== "" ){
-
+								
 							_engine.ui.modal._prefillFromDataQuery(_prefillValue,function( prefillString ){
 								$( v ).find('input').val( prefillString );
 							});
-
+								
 						}
 						break;
 					default:

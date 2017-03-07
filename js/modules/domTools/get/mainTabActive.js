@@ -1,6 +1,10 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
 _engine.module.define('domTools/get/mainTabActive',function(){
 	
-	return $('#app-sections-container-dc_tablist > div.dijitTabListWrapper.dijitTabContainerTopNone.dijitAlignClient > div > div.visible.dijitTabChecked.dijitChecked')[0];
+	let returnVal = false;
+	
+	$.each(_engine.domTools.get.mainTabList(), function(k,v){ if($(v).hasClass('dijitChecked')) returnVal = $(v)[0]; });
+	
+	return returnVal;
 	
 });

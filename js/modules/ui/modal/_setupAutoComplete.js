@@ -1,16 +1,17 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
-_engine.module.define('ui/modal/_setupAutoComplete',function(){
+_engine.module.define('ui/modal/_setupAutoComplete',function( modalId ){
 	
-	let _fields = $('.mns-modal-template > .mns-input-group');
+	let _fields = $('[data-id="'+modalId+'"] .mns-modal-template > .mns-input-group');
 		//Push additional clusters if clustering is active
-	if( _engine.ui.modal._clustersActive() ){
+	
+	if( _engine.ui.modal._clustersActive( modalId ) ){
 		
-		let _clusterFields = $('.mns-modal-template > .mns-input-cluster.input-cluster-active > .mns-input-group');
+		let _clusterFields = $('[data-id="'+modalId+'"] .mns-modal-template > .mns-input-cluster.input-cluster-active > .mns-input-group');
 		
 		$.each(_clusterFields,function(k,v){ _fields.push(v); });
 	
 	}
-
+	
 	$.each( _fields, function(k,v){
 		
 		if( $( v ).find('input').length !== 0 ){
@@ -50,7 +51,7 @@ _engine.module.define('ui/modal/_setupAutoComplete',function(){
 						}
 						break;
 					default:
-						_engine.debug.warn("unrecognised prefill type of: [ '" +_prefill+ " ']");
+						_engine.debug.warn("unrecognised prefill type of: [ '" +_autoCompleteType+ " ']");
 						break;
 				}
 			}

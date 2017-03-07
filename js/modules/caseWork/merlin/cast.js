@@ -1,135 +1,63 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
 _engine.module.define('caseWork/merlin/cast',function( input ){
-
-	/*
-
-		IFRAME CARD
-
-			width: 94%;
-			height: 96%;
-			box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-			border: 1px solid rgba(0,0,0,.1);
-	*/
 	
 	_engine.caseWork.global.onCaseScreen(function(){
 		
-		if( typeof _engine.storage.nocache.data.merlin === 'undefined' ) _engine.storage.nocache.data.merlin = {};
-		
-		let config = {
-			title: '',
-			tasks: {}
-		};
-		
-		$.each(input,function(k,v){ config[k] = input[k]; });
-		
-		let uniqueID = _engine.advanced.generateId();
-		
-		/* Shaded Backdrop
-		***************************************************/
-			var backDrop = _engine.ui.dom.createElement({ 
-				type: 'div', 
-				id: uniqueID, 
-				classes:'merlin-backdrop'
-			});
-
-		/* Modal Wrapper Element
-		***************************************************/
-			var wrapperDiv = _engine.ui.dom.createElement({ 
-				type: 'div', 
-				id:'merlinModal-'+uniqueID, 
-				classes: 'dijitDialog merlin-wrapper'
-			});
-
-		/* Title Bar Elements
-		***************************************************/
-			var titleBar = _engine.ui.dom.createElement({ 
-				type: 'div', 
-				id:'merlinTitleBar-'+uniqueID, 
-				styles:'height: 21px;width: 100%;', 
-				classes:'dijitDialogTitleBar'
-			});
-
-			var titleBarText = _engine.ui.dom.createElement({ 
-				content: config.title, 
-				type: 'span', 
-				classes:'dijitDialogTitle'
-			});
-
-			var titleBarCloseButton = _engine.ui.dom.createElement({ 
-				id:"titleBarCloseButton", 
-				type: 'span', 
-				classes:'dijitDialogCloseIcon'
-			});
-
-		/* Left Content Wrapper
-		***************************************************/
-			var leftContent = _engine.ui.dom.createElement({ 
-				type: 'div',
-				classes:'merlin-leftContent',
-			});
-
-			var leftContentContainer = _engine.ui.dom.createElement({ 
-				type: 'div', 
-				id:'merlinTaskBinder',
-				classes: 'merlin-taskBinderContainer'
-			});
-
-		/* Modal Body Wrapper
-		***************************************************/
-			var bodyContent = _engine.ui.dom.createElement({ 
-				type: 'div', 
-				classes:'merlin-bodyContent',
-			});
+		_engine.advanced.getView('merlin/modal-template.html',function( template ){
 			
-			var bodyContentContainer = _engine.ui.dom.createElement({ 
-				type: 'div', 
-				id:'merlinTaskBoard', 
-				classes:'merlin-bodyContentContainer',
-			});
+			let modal = $.parseHTML( template );
 			
-		/* Apply Backdrop To Screen
-		***************************************************/
-			$('body').append( backDrop );
+			let uniqueID = _engine.advanced.generateId();
 			
-		/* Build Title Bar
-		***************************************************/
-			$( titleBar ).append( titleBarText );
-			$( titleBar ).append( titleBarCloseButton );
+			_engine.storage.nocache.data.modal[uniqueID] = {
+				loaded: false,
+				tasks: 0
+			}
 			
-		/* Build Left Content
-		***************************************************/
-			$( leftContent ).append( leftContentContainer );
+			let config = {
+				title: 'DEFAULT TITLE',
+				tasks: {}
+			};
 			
-		/* Build Body Content
-		***************************************************/
-			$( bodyContent ).append( bodyContentContainer );
+			$.each(input,function(k,v){ config[k] = input[k]; });
 			
-		/* Add Cores To Modal
-		***************************************************/
-			$( wrapperDiv ).append( titleBar );
+			$( modal ).attr( 'data-id', uniqueID );
 			
-			$( wrapperDiv ).append( leftContent );
+			$( modal ).find( '.dijitDialogTitle' ).text( config.title );
 			
-			$( wrapperDiv ).append( bodyContent );
+			_engine.ui.dom.dimLights( true );
 			
-		/* Launch Modal
-		***************************************************/
-			$( curam.util.getTopmostWindow().document.body ).append( wrapperDiv );
-
-		/* Enable Modal Resizing and Dragging
-		***************************************************/
-			$('[data-merlin-id="merlinModal-'+uniqueID+'"]').draggable({ handle: '[data-merlin-id="merlinTitleBar-'+uniqueID+'"]' });
-			$('[data-merlin-id="merlinModal-'+uniqueID+'"]').resizable();
-
-		/* Setup Modal Actions 
-		***************************************************/
-			// Closeout Modal
-			_engine.caseWork.merlin.setupAction({
-				item: '[data-merlin-id="titleBarCloseButton"]',
-				trigger: 'click',
-				action: function(){_engine.caseWork.merlin.destroy( uniqueID )}
-			});
-		
-		}, true );
+			$( '.modal-overlay' ).append(modal);
+			
+			_engine.caseWork.merlin._attachTasks( uniqueID, config.tasks );
+			
+				/* Enable Modal Resizing and Dragging
+			***************************************************/
+				
+				$('[data-id="'+uniqueID+'"]').center();
+				
+				$('[data-id="'+uniqueID+'"]').draggable({ 
+					handle: $('[data-id="'+uniqueID+'"] .dijitDialogTitleBar')[0], 
+					stack: '.dijitDialog',
+					containment: '.modal-overlay'
+				});
+				$('[data-id="'+uniqueID+'"]').resizable();
+				
+			/* Setup Modal Actions 
+			***************************************************/
+				// Closeout Modal
+				
+				_engine.caseWork.merlin.setupAction({
+					item: '[data-id="'+uniqueID+'"] [data-role="titlebar-close-button"]',
+					trigger: 'click',
+					action: function(){ _engine.caseWork.merlin.destroy( uniqueID ) }
+				});
+				
+				_engine.storage.nocache.data.modal[uniqueID].loaded = true;
+				_engine.storage.nocache.data.modal[uniqueID].role = 'wizard';
+				
+		});
+	
+	}, true );
 
 });

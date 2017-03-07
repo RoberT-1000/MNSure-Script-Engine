@@ -13,12 +13,16 @@ _engine.module.define('ui/topNotification',{
 	
 	remove: function( msg ){
 		
-		if( typeof _engine.advanced._vars.topNotificationTicker === 'undefined' ) _engine.advanced._vars.topNotificationTicker = [];
+		if( typeof _engine.advanced._vars.topNotificationTicker === 'undefined' )
+			_engine.advanced._vars.topNotificationTicker = [];
 		
-		if( _engine.advanced._vars.topNotificationTicker.indexOf( msg ) !== -1 ){
-			let index = _engine.advanced._vars.topNotificationTicker.indexOf( msg );
-			_engine.advanced._vars.topNotificationTicker.splice( index, 1 );
-		}
+		let msgArray = [];
+		
+		$.each( _engine.advanced._vars.topNotificationTicker, function( k, v ){
+			if( v.indexOf( msg ) === -1 ) msgArray.push( v );
+		});
+		
+		_engine.advanced._vars.topNotificationTicker = msgArray;
 		
 	},
 	

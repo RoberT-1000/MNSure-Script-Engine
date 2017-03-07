@@ -2,43 +2,48 @@
 _engine.module.define('caseWork/note/openCuramNote',function( callback ){
 	_engine.caseWork.global.onCaseScreen(function(){
 		
-		let curamObj = _engine.storage._curamCreatedObject.get();
+		let curamObj = curam.tab.getSelectedTab().params.tabDescriptor;
 		
-		let __o3rpu = 'DefaultIC_listNotePage.do';
+		let openModal = function( url ){
+			
+			curam.util.openModalDialog({ href: url }, '');
+			
+			let count = 0;
 		
-		__o3rpu += curam.util.makeQueryString({
-			'o3ctx': curamObj.tabContent.parameters.o3ctx,
-			'caseID': curamObj.tabContent.parameters.caseID
-		});
-		
-		let url = 'Case_createNote1Page.do';
-		
-		let description = curamObj.tabContent.tabName.split('-')[0].trim().replace('Insurance Affordability','Insurance+Affordability').replace(' ','+-+');
-		
-		url += curam.util.makeQueryString({
-			'caseID' : curamObj.tabContent.parameters.caseID,
-			'pageDescription': 'DESCRIPTION',
-			'o3ctx' : '256',
-			'__o3rpu' : __o3rpu
-		});
-		
-		url = curam.util.replaceUrlParam(url,'pageDescription',description);
-		
-		curam.util.openModalDialog({ href: url }, '');
-		
-		let count = 0;
-		
-		let modalOpen = setInterval(function(){
-			if( count <= 400 ){
-				if( _engine.domTools.get.icFrame.contactTab.caseNoteModal._activeModal( false ) ){
-					if( typeof callback === 'function' ) callback();
+			let modalOpen = setInterval(function(){
+				if( count <= 400 ){
+					if( _engine.domTools.get.icFrame.contactTab.caseNoteModal._activeModal( false ) ){
+						if( typeof callback === 'function' ) callback();
+						clearInterval( modalOpen );
+					}
+					count++;
+				}
+				else {
 					clearInterval( modalOpen );
 				}
-				count++
+			},25);
+			
+		}
+		
+		$.ajax({
+			url: 'en_US/DefaultIC_listNotePage.do',
+			data: {
+				o3ctx: curamObj.tabContent.parameters.o3ctx,
+				caseID: curamObj.tabContent.parameters.caseID,
+				o3nocache: curam.util.getCacheBusterParameter().split('=')[1]
+			},
+			async: true,
+			success: function(data){
+				let node = $.grep($.parseHTML(data),function(ele){ 
+					return($(ele).attr('id') === 'content'); 
+				});
+				
+				let url = $(node).find('.action-set a').attr('onclick').split(/'/g)[1];
+				
+				openModal( url );
+				
 			}
-			else {
-				clearInterval( modalOpen );
-			}
-		},25);
+		});
+		
 	},true);
 });

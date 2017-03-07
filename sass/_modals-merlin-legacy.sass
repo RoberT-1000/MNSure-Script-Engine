@@ -1,0 +1,67 @@
+$contentHeight: calc(100% - 56px)
+$contentBGColor: #f1f1f1
+
+.custom-modal.merlin
+	height: 50vh
+	width: 60vw
+	background-color: white
+	position: absolute !important
+	z-index: 1000
+	top: 25vh
+	left: 20vw
+	box-shadow: 0 1px 2px rgba(0,0,0,.15)
+	
+	.dijitDialogTitleBar
+		height: 21px
+		width: 100%
+			
+	.modal-left
+		height: $contentHeight
+		width: 30%
+		float: left
+		background-color: $contentBGColor
+		position: relative
+		overflow: auto
+	
+		.task-list
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			min-width: 250px
+			
+			.task-card
+				background-color: #fff
+				box-shadow: 0px 1px 2px rgba(0,0,0,.15)
+				margin: .5rem
+				padding: .5rem
+				
+				.card-title
+					font-weight: bold
+					border-bottom: 1px solid rgba(0,0,0,.2)
+					padding: .2rem
+					margin-bottom: .3rem
+				
+				.card-body
+					padding: .2rem
+					
+					ul
+						li
+							list-style-type: disc
+							list-style-position: inside
+	
+	.modal-right
+		height: $contentHeight
+		width: 70%
+		float: right
+		background-color: $contentBGColor
+		border-left: 1px solid rgba(0,0,0,.2)
+		box-sizing: border-box
+		overflow: auto
+	
+		.task-attach
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			min-width: 250px

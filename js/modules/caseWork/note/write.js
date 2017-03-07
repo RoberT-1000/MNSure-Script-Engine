@@ -24,6 +24,7 @@ _engine.module.define('caseWork/note/write',function( _note ){
 			_engine.advanced.getView( _noteLocation, function( template ){
 				// Builds and renders an HTML modal
 				_engine.ui.modal.build({
+					role: 'case note',
 					title: _note,
 					html: template,
 					buttons: [
@@ -32,7 +33,6 @@ _engine.module.define('caseWork/note/write',function( _note ){
 					]
 				},function(){
 					// Stores the role of the modal in nocache until its destroyed
-					_engine.storage.nocache.data.modal.role = 'case note';
 				});
 			});
 		// Logs an error is the note cannot be found or displayed

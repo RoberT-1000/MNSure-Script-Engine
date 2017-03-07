@@ -1,7 +1,5 @@
-<!-- MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */ -->
-
-<div class="mns-modal-template">
-
+<div class="mns-modal-template" data-input-clusters="true">
+	
 	<span class="mns-input-group">
 		<span class="mns-input-descriptor">SUBJECT</span>
 		<span class="mns-input-label">Subject: </span> 
@@ -14,48 +12,169 @@
 		</select>
 	</span>
 	
-	<span class="mns-input-group required">
-		<span class="mns-input-descriptor">Appointment Details</span>
-		<span class="mns-input-label">Appointment Details: </span> 		
-		<input type="text" />
+	<span class="mns-input-cluster" data-cluster-title="Prior Authorization">
+	
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Details</span>
+			<span class="mns-input-label">Appointment Details: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Verification</span>
+			<span class="mns-input-label">Appointment Verification: </span>
+			<select type="select">
+				<option value="Received">Received</option>
+				<option value="Not Received">Not Received</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Out of Area Referral</span>
+			<span class="mns-input-label">Out of Area Referral: </span>
+			<input type="text" />
+		</span>
+		
 	</span>
 	
-	<span class="mns-input-group required">
-		<span class="mns-input-descriptor">Appointment Verification</span>
-		<span class="mns-input-label">Appointment Verification: </span> 		
-		<select type="select">
-			<option value="Received">Received</option>
-			<option value="Not Received">Not Received</option>
-		</select>
+	<span class="mns-input-cluster" data-cluster-title="Reimbursement Request: Approved">
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Details</span>
+			<span class="mns-input-label">Appointment Details: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Verification</span>
+			<span class="mns-input-label">Appointment Verification: </span>
+			<select type="select">
+				<option value="Received">Received</option>
+				<option value="Not Received">Not Received</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Out of Area Referral</span>
+			<span class="mns-input-label">Out of Area Referral: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">---------------------------------</span>
+			<span class="mns-input-label mns-input-infotext align-center">----- REIMBURSEMENT ONLY ------</span> 
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Amount Approved</span>
+			<span class="mns-input-label">Amount Approved: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Notice Sent</span>
+			<span class="mns-input-label">Notice Sent: </span>
+			<input type="text" />
+		</span>
+		
 	</span>
 	
-	<span class="mns-input-group required">
-		<span class="mns-input-descriptor">Out of Area Referral</span>
-		<span class="mns-input-label">Out of Area Referral: </span> 		
-		<input type="text" />
+	<span class="mns-input-cluster" data-cluster-title="Reimbursement Request: Denied">
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Details</span>
+			<span class="mns-input-label">Appointment Details: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Verification</span>
+			<span class="mns-input-label">Appointment Verification: </span>
+			<select type="select">
+				<option value="Received">Received</option>
+				<option value="Not Received">Not Received</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Out of Area Referral</span>
+			<span class="mns-input-label">Out of Area Referral: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">---------------------------------</span>
+			<span class="mns-input-label mns-input-infotext align-center">----- REIMBURSEMENT ONLY ------</span> 
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Denial Reason</span>
+			<span class="mns-input-label">Denial Reason: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Notice Sent</span>
+			<span class="mns-input-label">Notice Sent: </span>
+			<input type="text" />
+		</span>
+		
 	</span>
 	
-	<span class="mns-input-group">
-		<span class="mns-input-descriptor">---------------------------------</span>
-		<span class="mns-input-label mns-input-infotext align-center">----- REIMBURSEMENT ONLY ------</span> 
+	<span class="mns-input-cluster" data-cluster-title="Volunteer Driver Request Routed">
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Details</span>
+			<span class="mns-input-label">Appointment Details: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Verification</span>
+			<span class="mns-input-label">Appointment Verification: </span>
+			<select type="select">
+				<option value="Received">Received</option>
+				<option value="Not Received">Not Received</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Out of Area Referral</span>
+			<span class="mns-input-label">Out of Area Referral: </span>
+			<input type="text" />
+		</span>
+		
 	</span>
 	
-	<span class="mns-input-group">
-		<span class="mns-input-descriptor">Amount Approved</span>
-		<span class="mns-input-label">Amount Approved: </span> 		
-		<input type="text" />
-	</span>
-	
-	<span class="mns-input-group">
-		<span class="mns-input-descriptor">Notice Sent</span>
-		<span class="mns-input-label">Notice Sent: </span> 		
-		<input type="text" />
-	</span>
-	
-	<span class="mns-input-group">
-		<span class="mns-input-descriptor">Denial Reason</span>
-		<span class="mns-input-label">Denial Reason: </span> 		
-		<input type="text" />
+	<span class="mns-input-cluster" data-cluster-title="Volunteer Driver Request Denied">
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Details</span>
+			<span class="mns-input-label">Appointment Details: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Appointment Verification</span>
+			<span class="mns-input-label">Appointment Verification: </span>
+			<select type="select">
+				<option value="Received">Received</option>
+				<option value="Not Received">Not Received</option>
+			</select>
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">Out of Area Referral</span>
+			<span class="mns-input-label">Out of Area Referral: </span>
+			<input type="text" />
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">Denial Reason</span>
+			<span class="mns-input-label">Denial Reason: </span>
+			<input type="text" />
+		</span>
+		
 	</span>
 
 </div>

@@ -24,11 +24,7 @@ _engine.module.define('navigation/mainTabs/mainTabNavi',function( tab, callback 
 			break;
 	}
 
-	if( navTitle != _engine.domTools.get.mainTabActive().innerText.trim() ){
-
-		$(`[title='${navTitle}']`)[0].click();
-
-	}
+	if( navTitle != _engine.domTools.get.mainTabActive().innerText.trim() ) $(`[title='${navTitle}']`)[0].click();
 
 	if(typeof callback === 'function') callback();
 

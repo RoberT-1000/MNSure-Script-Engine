@@ -21,76 +21,92 @@ var _engine = {
 		/********************************************************************/
 		
 		_startUp: function() {
-			/* Runs the callback after all modules have been requested */
-			_engine.module.loadRequired(function(){
-				
-				_engine.debug.info('All modules have loaded.');
+			
+			let online = true,
+					version = _engine.storage.config.get('commit.current');
+			
+			if( !online ) online = ( ['master'].indexOf( version ) < 0 );
+			
+			if( online ) {
+			
+				/* Runs the callback after all modules have been requested */
+				_engine.module.loadRequired(function(){
+					_engine.debug.info('All modules have loaded.');
 
-				_engine.tools.loadAddons.run( _engine.tools.loadAddons.config );
+					_engine.tools.loadAddons.run( _engine.tools.loadAddons.config );
 
-				/* Loaded
-				/* Scripts Main Button
-				========================*/
+					/* Loaded
+					/* Scripts Main Button
+					========================*/
 
-				//********** Right Click **********//
-				// Performs Quick Load of Searches
-				
-				$('#script-launcher a').contextmenu(function(e){
+					//********** Right Click **********//
+					// Performs Quick Load of Searches
 
-						// Prevent context menu pop-up
-					e.preventDefault();
+					$('#script-launcher a').contextmenu(function(e){
 
-						// Open Case Search
-					_engine.search._case();
+							// Prevent context menu pop-up
+						e.preventDefault();
+							// Open Case Search
+						_engine.search._case();
 
-						// Open Person Search
-					_engine.search._person();
+							// Open Person Search
+						_engine.search._person();
 
-				});
+					});
 
-				var version = _engine.storage.config.get('commit.current');
+					version === 'master' ?
+						_engine.storage.debugStatus.set( false ):
+						_engine.storage.debugStatus.set( true );
 
-				version === 'master' ?
-					_engine.storage.debugStatus.set( false ):
-					_engine.storage.debugStatus.set( true );
+					_engine.storage.prefillCache.clear();
 
-				_engine.storage.prefillCache.clear();
-				
-				_engine.ui.topNotification.add(`Script Library: ${version}`);
-				
-				_engine.ui.topNotification.add( 'Session Expiry - ' + _engine.advanced._sessionExpiry() );
-				
-				if( version !== 'master' && version !== 'beta' ){
+					_engine.ui.topNotification.add(`Script Library: ${version}`);
+
+					//Dynamic Ticket Notifs (10s)
+					setInterval(function(){
+
+						_engine.ui.topNotification.remove("Session Expiry");
+						_engine.ui.topNotification.add( `Session Expiry - ${ _engine.advanced._sessionExpiry() }` );
+
+					},10000);
+
+					if( version !== 'master' && version !== 'beta' ){
+
+						$.ajax({
+							url: 'https://api.github.com/rate_limit?access_token=e4ad5080ca84edff38ff06bea3352f30beafaeb1',
+							dataType: 'json',
+							async: false,
+							success: function( data ){
+								_engine.ui.topNotification.add(`Calls Remaining: ${data.resources.core.remaining}`);
+							}
+						});
+
+					}
+
+					_engine.ui.dom.prepUI(function(){
+
+						_engine.ui.topNotification.run();
+
+							//Build out menu
+						_engine.ui.scriptMenu.refresh();
+
+						_engine.events.domMonitor();
+
+						$('.scripts-link, .center-box').removeAttr('style');
+
+						_engine.advanced.setupTimeoutAlert();
 					
-					$.ajax({
-						url: 'https://api.github.com/rate_limit?access_token=e4ad5080ca84edff38ff06bea3352f30beafaeb1',
-						dataType: 'json',
-						async: false,
-						success: function( data ){
-							_engine.ui.topNotification.add(`Calls Remaining: ${data.resources.core.remaining}`);
-						}
 					});
 					
-				}
-				
-				_engine.ui.dom.prepUI(function(){
-					
-					_engine.ui.topNotification.run();
-					
-						//Build out menu
-					_engine.ui.scriptMenu.refresh();
-						
-					$(document).on('click','.dijitTab',function(){
-						_engine.events.tabWatcher( this );
-					});
-						
-					$('.scripts-link, .center-box').removeAttr('style');
-						
-					_engine.advanced.setupTimeoutAlert();
-					
 				});
-				
-			});
+			
+			}
+			else {
+				$('.center-box').html("<span>Script Library: Unavailable</span>");
+				$('.center-box').removeAttr('style');
+				if( _engine.temp.jQloaded ) clearInterval(_engine.temp.jQloaded);
+				_engine = undefined;
+			}
 			
 		},
 
@@ -392,8 +408,12 @@ _engine.temp.jQloaded = setInterval(function(){
 	if( _engine.temp.count < 400 ){
 		if( typeof $ === 'function' ){
 			_engine.events._startUp();
-			clearInterval(_engine.temp.jQloaded);
-			delete _engine.temp;
+			if( _engine ){
+				if( _engine.temp ){
+					if( _engine.temp.jQloaded ) clearInterval(_engine.temp.jQloaded);
+					delete _engine.temp;
+				}
+			}
 		} else {
 			_engine.temp.count++;
 		}

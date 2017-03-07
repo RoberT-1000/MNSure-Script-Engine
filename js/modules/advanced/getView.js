@@ -7,7 +7,7 @@ _engine.module.define('advanced/getView',function( file, callback ){
 	
 		/* If undefined, get and cache template */
 	if( typeof _engine.storage.nocache.data.templates[file] === 'undefined' ){
-		_engine.debug.info('Template not cached. Retreiving and caching template.');
+		_engine.debug.info('[getView] Template not cached. Retreiving and caching template. { '+ file +' }');
 		$.ajax({
 			url: href,
 			success: function( data ){
@@ -20,7 +20,7 @@ _engine.module.define('advanced/getView',function( file, callback ){
 		});
 	}
 	else {
-		_engine.debug.info('Template found. Returning stored template.');
+		_engine.debug.info('[getView] Template found. Returning stored template. { '+ file +' }');
 		callback( _engine.storage.nocache.data.templates[file] );
 	}
 

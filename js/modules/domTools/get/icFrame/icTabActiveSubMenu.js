@@ -1,9 +1,8 @@
 /* MNSure Script Engine | (c) Lucas Shanley | https://raw.githubusercontent.com/lpshanley/MNSure-Script-Engine/master/LICENSE */
 _engine.module.define('domTools/get/icFrame/icTabActiveSubMenu',function(){
 	
-	if(_engine.domTools.test.hcrTabActiveIsIC()){
-		var _tp = _engine.domTools.get.hcrTabFrame();
-		return $( _tp ).find('div.dijitStackContainer-child.dijitVisible');
+	if( _engine.domTools.test.hcrTabActiveIsIC() ){
+		return $( _engine.domTools.get.hcrTabFrame() ).find('div.dijitStackContainer-child.dijitVisible');
 	}
 	
 });

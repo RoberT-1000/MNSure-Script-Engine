@@ -1,0 +1,62 @@
+.scripts-link
+	cursor: pointer
+
+#script-launcher
+	&:hover > ul
+		z-index: 1000
+		display: block
+ 	
+	ul
+		list-style: none
+		position: absolute
+		float: left !important
+		z-index: -1000
+		background: #D7E5F5 !important
+		top: 26px
+		border-left: 4px solid #1089B8
+		border-top: 4px solid #1089B8
+		display: none
+		width: 150px
+		box-shadow: 1px 5px 5px rgba(0,0,0,.4)
+		
+		li
+			position: relative
+			float: none !important
+			margin: 0
+			padding: 0
+			width: 150px
+			border-bottom: 1px solid rgba(0,0,0,.1)
+	
+			&:hover
+				background: #C4D8F1
+				
+				> ul
+					display: block
+				
+			a
+				display: block
+				color: black !important
+				line-height: 26px
+				padding: 0 12px !important
+				background: none
+				&:hover
+					background: none !important
+				
+		ul
+			display: none
+			position: absolute
+			top: 100%
+			left: 150px
+			background: white
+			padding: 0
+			width: 150px
+			top: 0
+			border-top: 0
+			
+			li
+				float: none
+				width: inherit
+				
+			ul
+				top: 0
+				left: 100%
