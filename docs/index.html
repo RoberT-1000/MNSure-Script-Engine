@@ -1,41 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Valkyrie Documentation</title>
-    
-      <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<head>
+		<title>Valkyrie Documentation</title>
 
-      <!-- Latest compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-  </head>
-  <body>
-    
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNav" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Valkyrie</a>
-        </div>
+			<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/monokai.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://getbootstrap.com/assets/css/docs.min.css">
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+	<body>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="topNav">
-          <ul class="nav navbar-nav">
+		<nav class="bs-docs-nav navbar navbar-default">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNav" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Valkyrie</a>
+				</div>
 
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <div class="container">
-      Content
-    </div>
-  </body>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="topNav">
+
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		
+		<div class="bs-docs-header" id="content" tabindex="-1">
+			<div class="container">
+				<h1>Resources</h1>
+				<p>
+					Developer documentation and resources for the Valkyrie plugin.
+				</p>
+			</div>
+		</div>
+		
+		<div class="container bs-docs-container">
+			<div class="row">
+				<div class="col-md-9" role="main">
+					<div class="bs-docs-section">
+						<h2>Case Notes</h2>
+						<p>
+							This section contains the break down of the general syntax and layout options that are available when developing case notes in the Valkyrie system.
+						</p>
+						<h3>
+							Template
+						</h3>
+						<p>
+							General template
+						</p>
+						<figure class="highlight">
+							
+<pre><code class="html">&lt;div class="mns-modal-template" data-input-clusters="true"&gt;
+	&lt;span class="mns-input-group"&gt;
+		&lt;span class="mns-input-descriptor"&gt;SUBJECT&lt;/span&gt;
+		&lt;span class="mns-input-label"&gt;Subject: &lt;/span&gt;
+		&lt;select type="select"&gt;
+			&lt;option value="Case note subject"&gt;A subject option&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+							
+						</figure>
+					</div>
+				</div>
+				<div class="col-md-3" role="complementary">
+					<div class="bs-docs-sidebar hidden-sm hidden-xs hidden-print">
+						<ul class="nav bs-docs-sidenav">
+							<li><a href="#Documentation">Case Notes</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+			<!-- Latest compiled and minified JavaScript -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="./js/docs.min.js"></script>
+		<script src="./js/main.js"></script>
+		
+	</body>
 </html>

@@ -1,0 +1,69 @@
+<div class="mns-modal-template" data-input-clusters="true">
+
+	<span class="mns-input-group">
+		<span class="mns-input-descriptor">SUBJECT</span>
+		<span class="mns-input-label">Subject: </span>
+		<select type="select">
+			<option value="Paper Application Processed">Complete Application</option>
+		</select>
+	</span>
+
+	<span class="mns-input-cluster" data-cluster-title="Paper Application Processed">
+	
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">*Paper application received</span>
+			<span class="mns-input-label">Date Received: </span>
+			<input type="date"/>			
+		</span>
+	
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">*Paper application processed</span>
+			<span class="mns-input-label">Date Processed: </span>
+			<input type="date" data-prefill="date|today" />			
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">*Information obtained from legacy systems</span>
+			<span class="mns-input-label">Information obtained from legacy systems: </span>
+			<input type="text"/>			
+		</span>	
+	
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">*Maxis case number</span>
+			<span class="mns-input-label">Maxis case number: </span>
+			<input type="text"/>			
+		</span>	
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">*Information obtained from client phone call</span>
+			<span class="mns-input-label">Information obtained from client: </span>
+			<input type="text"/>			
+		</span>
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">*Spoke to</span>
+			<span class="mns-input-label">Spoke to: </span>
+			<input type="text" data-autoComplete="participants|name" />
+		</span>		
+		
+		<span class="mns-input-group">
+			<span class="mns-input-descriptor">*Date of contact</span>
+			<span class="mns-input-label">Date of contact: </span>
+			<input type="date" data-prefill="date|today" />
+		</span>
+		
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">*Outcome of application entry</span>
+			<span class="mns-input-label">Outcome of application entry: </span>
+			<input type="text"/>
+		</span>
+
+		<span class="mns-input-group required">
+			<span class="mns-input-descriptor">*Additional Notes</span>
+			<span class="mns-input-label">Additional Notes: </span>
+			<input type="text"/>
+		</span>
+		
+	</span>
+
+</div>
