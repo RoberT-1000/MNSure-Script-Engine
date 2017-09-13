@@ -35,6 +35,7 @@ _engine.module.define('ui/modal/build', function(modalReq, callback) {
 			let mnsModalButton = $('<a>', {
 				'onClick': props.onclick,
 				'data-role': props.role,
+				'class': 'ac',
 				'html': '<span class="left-corner"><span class="right-corner"><span class="middle">' + props.label + '</span></span></span>'
 			});
 

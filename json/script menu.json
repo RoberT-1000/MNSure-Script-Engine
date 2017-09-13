@@ -5,26 +5,29 @@
 	"Case Notes": {
 		"_events": "",
 		"_submenu": {
-			"Returned Mail...": {
-				"_events": "caseWork/note/write(Returned Mail)"
-			},
-			"Change Reported...": {
-				"_events": "caseWork/note/write(Change Reported)"
-			},
-			"Client Contact...": {
-				"_events": "caseWork/note/write(Client Contact)"
-			},
 			"Add Member...": {
 				"_events": "caseWork/note/write(Add Member)"
 			},
-			"Income...": {
-				"_events": "caseWork/note/write(Income)"
+			"Application...": {
+				"_events": "caseWork/note/write(Application)"
 			},
 			"ATS...": {
 				"_events": "caseWork/note/write(ATS)"
 			},
-			"Application...": {
-				"_events": "caseWork/note/write(Application)"
+			"Change Reported...": {
+				"_events": "caseWork/note/write(Change Reported)"
+			},
+			"Citizen & ID Verified...": {
+				"_events": "caseWork/note/write(Citizen & ID Verified)"
+			},
+			"Client Contact...": {
+				"_events": "caseWork/note/write(Client Contact)"
+			},
+			"Income...": {
+				"_events": "caseWork/note/write(Income)"
+			},
+			"Returned Mail...": {
+				"_events": "caseWork/note/write(Returned Mail)"
 			}
 		}	
 	}

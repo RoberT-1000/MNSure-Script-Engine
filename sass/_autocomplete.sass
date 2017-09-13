@@ -4,15 +4,23 @@
 ul.ui-autocomplete
 	z-index: 1000
 	padding: 0
+	background: #e0e0e0 !important
+	border: none
 
 	li.ui-menu-item 
 		a
-			padding: 1px !important
-			font: 13px Tahoma, sans-serif !important
+			padding: 5px 10px !important
+			font: 12px "HelvNeueMediumforIBM" !important
 			
 		&:hover
 			border-radius: 0
-
+	
+		&.ui-state-focus, a.ui-state-focus
+			border: 0 !important
+			background: #4178BE
+			color: white
+			margin: 0
+	
 .ui-helper-hidden-accessible
 	border: 0
 	clip: rect(0 0 0 0)

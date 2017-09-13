@@ -3,8 +3,9 @@
   padding-top: 1px;
 }
 
-#app-banner-dc {
-  overflow: visible;
+#app-banner-dc,
+#app-root-container-dc {
+  overflow: visible !important;
 }
 
 #app-banner .right-box .right-cell {
@@ -21,17 +22,15 @@
   display: inline-block;
 }
 #app-banner .center-box {
-  width: 200px;
+  position: relative;
+  width: 213px;
+  height: 30px;
+  border: 1px solid #325c80;
+  background-color: #264a60;
+  margin: 4px 10px;
   float: left;
   display: inline-block;
-  height: 24px;
-  position: relative;
-  background-color: #FFF;
-  color: #000;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-top: 1px solid black;
-  box-shadow: inset 5px 5px 5px -5px rgba(0, 0, 0, 0.8);
+  color: white;
 }
 #app-banner .mns-expiryBlock {
   color: #FFFFFF;
@@ -50,6 +49,20 @@
 .scripts-link {
   cursor: pointer;
 }
+.scripts-link a {
+  color: white !important;
+  font-size: 12px !important;
+  font-family: "HelvNeueMediumforIBM";
+  margin-top: 0px;
+  padding: 7px 15px 11px 15px !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 17px;
+}
+.scripts-link a:hover {
+  background-image: none !important;
+  color: #4378bd !important;
+}
 
 #script-launcher:hover > ul {
   z-index: 1000;
@@ -60,13 +73,12 @@
   position: absolute;
   float: left !important;
   z-index: -1000;
-  background: #D7E5F5 !important;
-  top: 26px;
-  border-left: 4px solid #1089B8;
-  border-top: 4px solid #1089B8;
+  background: #e0e0e0 !important;
+  top: 40px;
+  right: 0;
   display: none;
   width: 150px;
-  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.4);
+  height: auto !important;
 }
 #script-launcher ul li {
   position: relative;
@@ -74,29 +86,33 @@
   margin: 0;
   padding: 0;
   width: 150px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 #script-launcher ul li:hover {
-  background: #C4D8F1;
+  background: #4178BE;
 }
 #script-launcher ul li:hover > ul {
   display: block;
 }
+#script-launcher ul li:hover > a {
+  color: white !important;
+  background: none !important;
+}
 #script-launcher ul li a {
   display: block;
   color: black !important;
-  line-height: 26px;
-  padding: 0 12px !important;
+  line-height: 25px;
+  padding: 7px 0 7px 14px !important;
   background: none;
 }
 #script-launcher ul li a:hover {
+  color: white !important;
   background: none !important;
 }
 #script-launcher ul ul {
   display: none;
   position: absolute;
   top: 100%;
-  left: 150px;
+  right: 150px;
   background: white;
   padding: 0;
   width: 150px;
@@ -117,15 +133,15 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: Calc(100% - 30px);
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  height: Calc(100% - 40px);
+  background-color: rgba(29, 54, 73, 0.8);
+  z-index: 950;
 }
 
 .custom-modal {
   width: 500px;
   min-height: 100px;
-  background-color: white;
+  background-color: white !important;
   position: absolute !important;
   z-index: 1000;
   top: 30vh;
@@ -147,8 +163,7 @@
 }
 
 .mns-modal-template {
-  padding: 0 15px;
-  border-top: 1px solid #7FBAD5;
+  padding: 0 30px;
 }
 
 .mns-input-group {
@@ -171,12 +186,25 @@
   display: block;
   float: left;
   padding-top: 3px;
-}
-.mns-input-group select {
-  height: 21px;
+  font-family: HelvNeueMediumforIBM, Helvetica, Arial;
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 20px;
+  color: #464646;
 }
 .mns-input-group input, .mns-input-group select {
   width: 66%;
+  border: 0px !important;
+  background-color: #f4f4f4;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #464646;
+  font-family: HelvNeueRomanforIBM, Helvetica, Arial;
+  outline: none;
+}
+.mns-input-group select {
+  height: 21px;
 }
 .mns-input-group .mns-input-infotext {
   width: 100% !important;
@@ -298,7 +326,8 @@
 }
 div.center-box > span {
   position: relative;
-  top: 5px;
+  font-weight: bold;
+  top: 8px;
   left: 6px;
 }
 
@@ -309,13 +338,21 @@ div.center-box > span {
 ul.ui-autocomplete {
   z-index: 1000;
   padding: 0;
+  background: #e0e0e0 !important;
+  border: none;
 }
 ul.ui-autocomplete li.ui-menu-item a {
-  padding: 1px !important;
-  font: 13px Tahoma, sans-serif !important;
+  padding: 5px 10px !important;
+  font: 12px "HelvNeueMediumforIBM" !important;
 }
 ul.ui-autocomplete li.ui-menu-item:hover {
   border-radius: 0;
+}
+ul.ui-autocomplete li.ui-menu-item.ui-state-focus, ul.ui-autocomplete li.ui-menu-item a.ui-state-focus {
+  border: 0 !important;
+  background: #4178BE;
+  color: white;
+  margin: 0;
 }
 
 .ui-helper-hidden-accessible {

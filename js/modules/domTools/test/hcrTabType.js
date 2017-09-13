@@ -16,6 +16,7 @@ _engine.module.define('domTools/test/hcrTabType',function( tab ){
 				typeMatch = {
 					'HCRIntegratedCase' : "Integrated Case",
 					'PersonHome' : "Person Page",
+					'HCRPersonHome' : "Person Page",
 					'PersonSearch' : "Person Search",
 					'CaseSearch' : "Case Search",
 					'EvidenceType' : "Evidence|" + nodeData.page.title.split('-')[0].trim(),
@@ -38,9 +39,12 @@ _engine.module.define('domTools/test/hcrTabType',function( tab ){
 					'MyRecentlyViewedCases' : "Recently Viewed Cases",
 					'MyServicePlans' : "My Service Plans",
 					'StreamlinedMedicaidHome' : "PDC|medical assistance",
+					"StreamlineMedicaidDecision": 'PDC|medical assistance decision',
 					'HCRStateBasicHealthPlanPDHome' : "PDC|minnesotacare",
+					'StateBasicPlanDecision': 'PDC|minnesotacare decision',
 					'HCRInsuranceAssistanceHome' : "PDC|insurance assistance",
-					'HCRUnassistedQualifiedHealthPlanPDHome' : "PDC|unassisted qualified health plan"
+					'HCRUnassistedQualifiedHealthPlanPDHome' : "PDC|unassisted qualified health plan",
+					'UQHPDecision': 'PDC|unassisted qualified health plan decision'
 				};
 				
 		if( typeof typeMatch[ nodeData.page.params.tabDescriptor.tabID ] !== 'undefined' )

@@ -11,8 +11,6 @@ _engine.module.define('caseWork/global/onCaseScreen',function( callback, showMod
 		}
 		else {
 			
-			console.log( showModal );
-			
 			if( showModal ){
 			
 				_engine.advanced.getView( "error/incorrect launch location.html",function(template){
